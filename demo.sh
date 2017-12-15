@@ -16,7 +16,7 @@ glcoud compute addresses create nginx-static-ip --global
 kubectl apply -f nginx-ingress-ip.yml
 # open <IP Address>
 
-kubectl run echoserver --image=gcr.io/google_containers/echoserver:1.4
+kubectl run echoserver --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 kubectl expose deployment echoserver --target-port=8080 --type=NodePort
 
 kubectl create -f fanout-ingress.yml
