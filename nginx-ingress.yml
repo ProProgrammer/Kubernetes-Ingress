@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  backend:
+    serviceName: nginx
+    servicePort: 80
+# the backend portion basically says that for this ingress (nginx-ingress), look for the service named nginx and
+# servicePort is 80 - Not the NodePort but the internal one.
