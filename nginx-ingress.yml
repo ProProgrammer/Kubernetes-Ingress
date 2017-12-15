@@ -2,9 +2,13 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: nginx-static-ip
 spec:
   backend:
     serviceName: nginx
     servicePort: 80
 # the backend portion basically says that for this ingress (nginx-ingress), look for the service named nginx and
 # servicePort is 80 - Not the NodePort but the internal one.
+
+# The annotation kubernetes.io/ingress.global-static-ip-name says that for this particular ingress, a static IP by the name "nginx-static-ip" should be used.
